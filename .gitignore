@@ -1,0 +1,65 @@
+# Built application files
+*.apk
+### *.orig
+### viewserver/build
+
+# Generated files
+bin/
+gen/
+
+# Generated files exceptions
+!/config/sonarqube-6.4/bin/
+
+# Gradle files
+.gradle/
+build/
+gradle.properties
+
+# Local configuration file (sdk path, etc)
+local.properties
+twitter.properties
+
+# Log Files
+*.log
+
+# Android Studio
+.navigation/
+captures/
+.idea/*
+*.iml
+*.ipr
+*.iws
+
+# IDEA/Android Studio Ignore exceptions (Settings changes will never be committed)
+!/.idea/vcs.xml
+!/.idea/fileTemplates/
+!/.idea/inspectionProfiles/
+!/.idea/scopes/
+!/.idea/codeStyleSettings.xml
+!/.idea/encodings.xml
+!/.idea/copyright/
+!/.idea/compiler.xml
+
+# https://github.com/github/gitignore/blob/master/Global/OSX.gitignore
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+*.bak
+season-cache.json
+
+
+# Checkstyle files
+### checkstyle.xml
+### checkstyle-suppressions.xml
+
+# Keystores
+### *.keystore
+### signing.properties

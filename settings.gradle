@@ -1,0 +1,2 @@
+include ':commons-presentation', ':commons-presentation-kotlin', ':commons-presentation-rxjava', ':commons-presentation-binding', ':commons-core-rxjava', ':playground',
+    ':commons-core'

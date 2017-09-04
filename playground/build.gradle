@@ -1,0 +1,37 @@
+buildscript {
+  repositories {
+    google()
+    jcenter()
+  }
+  dependencies {
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+  }
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+  compileSdkVersion 26
+  buildToolsVersion "26.0.1"
+
+
+  defaultConfig {
+    applicationId "com.codeforvictory.android.commons.playground"
+    minSdkVersion 16
+    targetSdkVersion 26
+    versionCode 1
+    versionName "1.0"
+
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+  }
+}
+
+dependencies {
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+  implementation 'com.android.support:appcompat-v7:26.0.1'
+  implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+  implementation project(':commons-presentation')
+  testImplementation 'junit:junit:4.12'
+}
