@@ -1,4 +1,8 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven' // Jitpack
+apply from: '../configuration/dependencies.gradle'
+
+group = 'com.github.cesards'
 
 android {
   compileSdkVersion 26
@@ -11,15 +15,6 @@ android {
     targetSdkVersion 26
     versionCode 1
     versionName "1.0"
-
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-  }
-
-  buildTypes {
-    release {
-      minifyEnabled false
-      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-    }
   }
 }
 
@@ -32,4 +27,28 @@ gradle.projectsEvaluated {
   tasks.withType(JavaCompile) {
     options.compilerArgs << "-Xmaxerrs" << "2000"
   }
+}
+
+// Build a jar with source files.
+task sourcesJar(type: Jar) {
+  from android.sourceSets.main.java.srcDirs
+  classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+  failOnError false
+  source = android.sourceSets.main.java.sourceFiles
+  classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+  classpath += configurations.compile
+}
+
+// Build a jar with javadoc.
+task javadocJar(type: Jar, dependsOn: javadoc) {
+  classifier = 'javadoc'
+  from javadoc.destinationDir
+}
+
+artifacts {
+  archives sourcesJar
+  archives javadocJar
 }
